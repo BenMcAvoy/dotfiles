@@ -50,7 +50,11 @@ function ram() {
 	free=$(free -h | grep Mem | awk '{print $3}' | tr -d "Gi")
 	total=$(free -h | grep Mem | awk '{print $2}' | tr -d "Gi")
 
-	echo -n " $free/$total GiB"
+	# convert to GB with no decimal places
+	freeGB=$(echo "$free * 1.073741824" | bc | awk '{printf "%.0f", $1}')
+	totalGB=$(echo "$total * 1.073741824" | bc | awk '{printf "%.0f", $1}')
+
+	echo -n " $freeGB/$totalGB GB"
 }
 
 function battery() {

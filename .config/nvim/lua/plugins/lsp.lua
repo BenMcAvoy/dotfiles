@@ -14,7 +14,25 @@ return {
 	"hrsh7th/cmp-path",
 	"onsails/lspkind.nvim",
 
-	{ "supermaven-inc/supermaven-nvim", opts = {} },
+	-- { "supermaven-inc/supermaven-nvim", opts = {} },
+
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+	},
+
+	{
+		"zbirenbaum/copilot.lua",
+		opts = {
+			-- enable markdown
+			filetypes = {
+				markdown = true,
+			}
+		}
+	},
+
+	"github/copilot.vim",
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -28,7 +46,7 @@ return {
 		opts = {}
 	},
 
-	{ "lewis6991/gitsigns.nvim",        opts = {} },
+	{ "lewis6991/gitsigns.nvim",         opts = {} },
 
 	{
 		"rose-pine/neovim",
